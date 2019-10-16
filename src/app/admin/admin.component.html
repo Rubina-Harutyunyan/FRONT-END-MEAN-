@@ -1,0 +1,32 @@
+<div *ngIf="user" id="admin">
+
+  <div class="row">
+
+    <div>
+      <ul class="list-group">
+        <li class="list-group-item">{{user.name}}</li>
+        <li class="list-group-item">{{user.surname}}</li>
+        <li class="list-group-item">{{user.userName}}</li>
+      </ul>
+    </div>
+    <div id="buttons">
+      <button  id="edit" (click)="modal.getModal('myModal').open()"><i class="fas fa-pencil-alt"></i>Edit</button>
+      <button  id="editPass" >Password <i class="fas fa-pencil-alt"></i></button>
+      <button (click)="signOut()">Sign Out</button>
+    </div>
+  </div>
+
+  <ngx-smart-modal #myModal identifier="myModal">
+    <div class="row" id="modal">
+      <form [formGroup]="form" (ngSubmit)="save()">
+        <input type="text" formControlName="name" placeholder="name">
+        <input type="text" formControlName="surname" placeholder="surname">
+      </form>
+    </div>
+    <div>
+      <button type="submit" (click)="save(); myModal.close()">Save</button>
+    </div>
+  </ngx-smart-modal>
+
+</div>
+

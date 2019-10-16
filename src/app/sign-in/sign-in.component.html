@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <form [formGroup]="loginUser">
+      <input type="email"  name="email" placeholder="Username" formControlName="userName">
+      <input type="password" placeholder="Password" formControlName="password">
+    </form>
+    <div class="row2">
+      <button id="signUp" routerLink="/signup">Sign Up</button>
+      <button id="signIn"   type="submit" (click)="login()">Sign In</button>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
